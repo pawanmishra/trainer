@@ -1,0 +1,2267 @@
+{
+  "Tables": [
+    {
+      "name": "SocialHistory_MasterSpec",
+      "rowCount": "30",
+      "columns": [
+        {
+          "name": "Element",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "6"
+          }
+        },
+        {
+          "name": "EncounterDate",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2015",
+            "maxvalue": "01-01-2017"
+          }
+        },
+        {
+          "name": "EncounterID",
+          "handler": {
+            "format": "Reference",
+            "table": "EncountersClinicalDataRepository_MasterSpec",
+            "column": "EncounterID"
+          }
+        },
+        {
+          "name": "PatientID",
+          "handler": {
+            "format": "Reference",
+            "table": "PatientDemographicsClinicalDataRepository_MasterSpec",
+            "column": "PatientID"
+          }
+        },
+        {
+          "name": "PractitionerID",
+          "handler": {
+            "format": "Reference",
+            "table": "PractitionerRosterClinicalDataRepository_MasterSpec",
+            "column": "PractitionerID"
+          }
+        },
+        {
+          "name": "Value",
+          "handler": {
+            "format": "Text",
+            "minlength": "2",
+            "maxlength": "8"
+          }
+        },
+        {
+          "name": "SourceSystemName",
+          "handler": {
+            "format": "Constant",
+            "value": "Object",
+            "datatype": "CDR"
+          }
+        }
+      ]
+    },
+    {
+      "name": "EncounterPractitionersClinicalDataRepository_MasterSpec",
+      "rowCount": "30",
+      "columns": [
+        {
+          "name": "EncounterID",
+          "handler": {
+            "format": "Reference",
+            "table": "EncountersClinicalDataRepository_MasterSpec",
+            "column": "EncounterID"
+          }
+        },
+        {
+          "name": "PractitionerID",
+          "handler": {
+            "format": "Reference",
+            "table": "PractitionerRosterClinicalDataRepository_MasterSpec",
+            "column": "PractitionerID"
+          }
+        },
+        {
+          "name": "PractitionerRole",
+          "handler": {
+            "nullPercentage": "10",
+            "format": "List",
+            "listitems": "Consulting;Attending;Resident;Admitting;Referring;PrimaryCareProvider;EDAttending",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "Sequence",
+          "handler": {
+            "nullPercentage": "10",
+            "format": "Integer",
+            "minvalue": "1",
+            "maxvalue": "10000"
+          }
+        }
+      ]
+    },
+    {
+      "name": "HealthMaintenanceModifiers_MasterSpec",
+      "rowCount": "30",
+      "columns": [
+        {
+          "name": "Code",
+          "handler": {
+            "format": "List",
+            "listitems": "V102.8;123;34;B678.9;001.9;P098.7",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "CodeSystem",
+          "handler": {
+            "format": "List",
+            "listitems": "CPT;HCPCS",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "CodeSystemVersion",
+          "handler": {
+            "format": "Constant",
+            "value": "1"
+          }
+        },
+        {
+          "name": "Datetime",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2016",
+            "maxvalue": "01-01-2017"
+          }
+        },
+        {
+          "name": "Description",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "5"
+          }
+        },
+        {
+          "name": "EncounterID",
+          "handler": {
+            "format": "Reference",
+            "table": "EncountersClinicalDataRepository_MasterSpec",
+            "column": "EncounterID"
+          }
+        },
+        {
+          "name": "LocationID",
+          "handler": {
+            "format": "Reference",
+            "table": "Locations_MasterSpec",
+            "column": "LocationID"
+          }
+        },
+        {
+          "name": "PatientID",
+          "handler": {
+            "format": "Reference",
+            "table": "PatientDemographicsClinicalDataRepository_MasterSpec",
+            "column": "PatientID"
+          }
+        },
+        {
+          "name": "PractitionerID",
+          "handler": {
+            "format": "Reference",
+            "table": "PractitionerRosterClinicalDataRepository_MasterSpec",
+            "column": "PractitionerID"
+          }
+        },
+        {
+          "name": "Sequence",
+          "handler": {
+            "format": "Sequence",
+            "datatype": "Integer",
+            "increment": "1",
+            "startvalue": "1"
+          }
+        },
+        {
+          "name": "SourceSystemName",
+          "handler": {
+            "format": "Constant",
+            "value": "Object",
+            "datatype": "CDR"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PatientsPayersBridge_MasterSpec",
+      "rowCount": "30",
+      "columns": [
+        {
+          "name": "EffectiveDate",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2010",
+            "maxvalue": "01-01-2017"
+          }
+        },
+        {
+          "name": "GroupID",
+          "handler": {
+            "format": "Integer",
+            "minvalue": "222222",
+            "maxvalue": "999999"
+          }
+        },
+        {
+          "name": "MemberID",
+          "handler": {
+            "format": "Integer",
+            "minvalue": "11111",
+            "maxvalue": "99999"
+          }
+        },
+        {
+          "name": "PatientID",
+          "handler": {
+            "format": "Reference",
+            "table": "PatientDemographicsClinicalDataRepository_MasterSpec",
+            "column": "PatientID"
+          }
+        },
+        {
+          "name": "PayerID",
+          "handler": {
+            "format": "Reference",
+            "table": "PayersAndPlansMasterClinicalDataRepository_MasterSpec",
+            "column": "PayerID"
+          }
+        },
+        {
+          "name": "PlanID",
+          "handler": {
+            "format": "Reference",
+            "table": "PayersAndPlansMasterClinicalDataRepository_MasterSpec",
+            "column": "PlanID"
+          }
+        },
+        {
+          "name": "Sequence",
+          "handler": {
+            "format": "Integer",
+            "minvalue": "1",
+            "maxvalue": "10"
+          }
+        },
+        {
+          "name": "TerminationDate",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2017",
+            "maxvalue": "01-01-2019"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PayersAndPlansMasterClinicalDataRepository_MasterSpec",
+      "rowCount": "30",
+      "columns": [
+        {
+          "name": "ActiveFlag",
+          "handler": {
+            "format": "Bool"
+          }
+        },
+        {
+          "name": "Fax",
+          "handler": {
+            "format": "Regex",
+            "expression": "^\\d{3}-\\d{3}-\\d{4}$"
+          }
+        },
+        {
+          "name": "HICNOIndicator",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "10"
+          }
+        },
+        {
+          "name": "PayerID",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "120"
+          }
+        },
+        {
+          "name": "PayerName",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "120"
+          }
+        },
+        {
+          "name": "PlanID",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "50"
+          }
+        },
+        {
+          "name": "PlanName",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "200"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Allergies_MasterSpec",
+      "rowCount": "30",
+      "columns": [
+        {
+          "name": "AllergenCode",
+          "handler": {
+            "format": "Text",
+            "minlength": "2",
+            "maxlength": "6"
+          }
+        },
+        {
+          "name": "AllergenCodingSystem",
+          "handler": {
+            "format": "List",
+            "listitems": "RXNORM;UNII",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "AllergenDescription",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "6"
+          }
+        },
+        {
+          "name": "AllergyRecordID",
+          "handler": {
+            "format": "Guid"
+          }
+        },
+        {
+          "name": "EncounterID",
+          "handler": {
+            "format": "Reference",
+            "table": "EncountersClinicalDataRepository_MasterSpec",
+            "column": "EncounterID"
+          }
+        },
+        {
+          "name": "EndDate",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2017",
+            "maxvalue": "01-01-2018"
+          }
+        },
+        {
+          "name": "OnsetDate",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2015",
+            "maxvalue": "01-01-2017"
+          }
+        },
+        {
+          "name": "PatientID",
+          "handler": {
+            "format": "Reference",
+            "table": "PatientDemographicsClinicalDataRepository_MasterSpec",
+            "column": "PatientID"
+          }
+        },
+        {
+          "name": "PractitionerID",
+          "handler": {
+            "format": "Reference",
+            "table": "PractitionerRosterClinicalDataRepository_MasterSpec",
+            "column": "PractitionerID"
+          }
+        },
+        {
+          "name": "ReactionCode",
+          "handler": {
+            "format": "Text",
+            "minlength": "2",
+            "maxlength": "5"
+          }
+        },
+        {
+          "name": "SourceSystemName",
+          "handler": {
+            "format": "Constant",
+            "value": "Object",
+            "datatype": "CDR"
+          }
+        }
+      ]
+    },
+    {
+      "name": "LabResults_MasterSpec",
+      "rowCount": "30",
+      "columns": [
+        {
+          "name": "Code",
+          "handler": {
+            "format": "List",
+            "listitems": "8716-3;8867-4;2708-6;8310-5;9843-4;8462-4",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "CodeSystem",
+          "handler": {
+            "format": "Constant",
+            "value": "LOINC",
+            "datatype": "Object"
+          }
+        },
+        {
+          "name": "EncounterID",
+          "handler": {
+            "format": "Reference",
+            "table": "EncountersClinicalDataRepository_MasterSpec",
+            "column": "EncounterID"
+          }
+        },
+        {
+          "name": "LabName",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "6"
+          }
+        },
+        {
+          "name": "OrderDate",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2016",
+            "maxvalue": "01-01-2017"
+          }
+        },
+        {
+          "name": "PatientID",
+          "handler": {
+            "format": "Reference",
+            "table": "PatientDemographicsClinicalDataRepository_MasterSpec",
+            "column": "PatientID"
+          }
+        },
+        {
+          "name": "PractitionerID",
+          "handler": {
+            "format": "Reference",
+            "table": "PractitionerRosterClinicalDataRepository_MasterSpec",
+            "column": "PractitionerID"
+          }
+        },
+        {
+          "name": "ResultDate",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2016",
+            "maxvalue": "01-01-2017"
+          }
+        },
+        {
+          "name": "ResultUnit",
+          "handler": {
+            "format": "List",
+            "listitems": "1;2",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "ResultValue",
+          "handler": {
+            "format": "Integer",
+            "minvalue": "1",
+            "maxvalue": "30"
+          }
+        },
+        {
+          "name": "SourceSystemName",
+          "handler": {
+            "format": "Constant",
+            "value": "CDR",
+            "datatype": "Object"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VitalSigns_MasterSpec",
+      "rowCount": "30",
+      "columns": [
+        {
+          "name": "Code",
+          "handler": {
+            "format": "List",
+            "listitems": "8716-3;8867-4;2708-6;8310-5;9843-4;8462-4",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "CodeSystem",
+          "handler": {
+            "format": "Constant",
+            "value": "LOINC",
+            "datatype": "Object"
+          }
+        },
+        {
+          "name": "EncounterID",
+          "handler": {
+            "format": "Reference",
+            "table": "EncountersClinicalDataRepository_MasterSpec",
+            "column": "EncounterID"
+          }
+        },
+        {
+          "name": "PatientID",
+          "handler": {
+            "format": "Reference",
+            "table": "PatientDemographicsClinicalDataRepository_MasterSpec",
+            "column": "PatientID"
+          }
+        },
+        {
+          "name": "RecordDateTime",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2016",
+            "maxvalue": "01-01-2018"
+          }
+        },
+        {
+          "name": "ResultUnit",
+          "handler": {
+            "format": "List",
+            "listitems": "mg;ml",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "ResultValue",
+          "handler": {
+            "format": "Integer",
+            "minvalue": "1",
+            "maxvalue": "30"
+          }
+        },
+        {
+          "name": "SourceSystemName",
+          "handler": {
+            "format": "Constant",
+            "value": "CDR",
+            "datatype": "Object"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PractitionerOrganizationLocation_MasterSpec",
+      "rowCount": "30",
+      "columns": [
+        {
+          "name": "LocationID",
+          "handler": {
+            "format": "Reference",
+            "table": "Locations_MasterSpec",
+            "column": "LocationID"
+          }
+        },
+        {
+          "name": "OrganizationID",
+          "handler": {
+            "format": "Reference",
+            "table": "OrganizationsRelationships_MasterSpec",
+            "column": "OrganizationID"
+          }
+        },
+        {
+          "name": "PractitionerID",
+          "handler": {
+            "format": "Reference",
+            "table": "PractitionerRosterClinicalDataRepository_MasterSpec",
+            "column": "PractitionerID"
+          }
+        },
+        {
+          "name": "RelationshipStartDate",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2015",
+            "maxvalue": "01-01-2017"
+          }
+        },
+        {
+          "name": "RelationshipStopDate",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2016",
+            "maxvalue": "01-01-2018"
+          }
+        },
+        {
+          "name": "Role",
+          "handler": {
+            "format": "List",
+            "listitems": "207WX0009X;207WX0107X;207WX0108X",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "SourceSystemName",
+          "handler": {
+            "format": "Constant",
+            "value": "Credentialing",
+            "datatype": "Object"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Medications_MasterSpec",
+      "rowCount": "30",
+      "columns": [
+        {
+          "name": "BrandName",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "6"
+          }
+        },
+        {
+          "name": "Code",
+          "handler": {
+            "format": "List",
+            "listitems": "8867-4;8480-6;8462-4;8478-0;8302-2",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "CodingSystem",
+          "handler": {
+            "format": "List",
+            "listitems": "RXNORM;NDC",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "DeleteFlag",
+          "handler": {
+            "format": "Bool"
+          }
+        },
+        {
+          "name": "EncounterID",
+          "handler": {
+            "format": "Reference",
+            "table": "EncountersClinicalDataRepository_MasterSpec",
+            "column": "EncounterID"
+          }
+        },
+        {
+          "name": "GenericName",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "8"
+          }
+        },
+        {
+          "name": "MedicationRecordID",
+          "handler": {
+            "format": "NPI"
+          }
+        },
+        {
+          "name": "PatientID",
+          "handler": {
+            "format": "Reference",
+            "table": "PatientDemographicsClinicalDataRepository_MasterSpec",
+            "column": "PatientID"
+          }
+        },
+        {
+          "name": "PractitionerID",
+          "handler": {
+            "format": "Reference",
+            "table": "PractitionerRosterClinicalDataRepository_MasterSpec",
+            "column": "PractitionerID"
+          }
+        },
+        {
+          "name": "SourceSystemName",
+          "handler": {
+            "format": "Constant",
+            "value": "CDR",
+            "datatype": "Object"
+          }
+        },
+        {
+          "name": "StartDate",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2016",
+            "maxvalue": "01-01-2017"
+          }
+        },
+        {
+          "name": "StopDate",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2017",
+            "maxvalue": "01-01-2018"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OrganizationsRelationships_MasterSpec",
+      "rowCount": "30",
+      "columns": [
+        {
+          "name": "OrganizationID",
+          "handler": {
+            "format": "Reference",
+            "table": "Organizations_MasterSpec",
+            "column": "OrganizationID"
+          }
+        },
+        {
+          "name": "ReferenceType",
+          "handler": {
+            "format": "List",
+            "listitems": "Parent Child",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "ReferencedOrganizationID",
+          "handler": {
+            "format": "Reference",
+            "table": "Organizations_MasterSpec",
+            "column": "OrganizationID"
+          }
+        },
+        {
+          "name": "RelationshipStartDate",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2016",
+            "maxvalue": "01-01-2017"
+          }
+        },
+        {
+          "name": "RelationshipStopDate",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2017",
+            "maxvalue": "01-01-2018"
+          }
+        },
+        {
+          "name": "RelationshipType",
+          "handler": {
+            "format": "List",
+            "listitems": "OrgHierarchy",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "SourceSystemName",
+          "handler": {
+            "format": "Constant",
+            "value": "Credentialing",
+            "datatype": "Object"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Immunizations_MasterSpec",
+      "rowCount": "30",
+      "columns": [
+        {
+          "name": "Code",
+          "handler": {
+            "format": "List",
+            "listitems": "8716-3;9279-1;8867-4;2708-6;8310-5",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "CodeSystem",
+          "handler": {
+            "format": "List",
+            "listitems": "CVX",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "Date",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2016",
+            "maxvalue": "01-01-2017"
+          }
+        },
+        {
+          "name": "EncounterID",
+          "handler": {
+            "format": "Reference",
+            "table": "EncountersClinicalDataRepository_MasterSpec",
+            "column": "EncounterID"
+          }
+        },
+        {
+          "name": "Name",
+          "handler": {
+            "format": "List",
+            "listitems": "EPIC;CERNER;ALLSCRIPTS",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "PatientID",
+          "handler": {
+            "format": "Reference",
+            "table": "PatientDemographicsClinicalDataRepository_MasterSpec",
+            "column": "PatientID"
+          }
+        },
+        {
+          "name": "PractitionerID",
+          "handler": {
+            "format": "Reference",
+            "table": "PractitionerRosterClinicalDataRepository_MasterSpec",
+            "column": "PractitionerID"
+          }
+        },
+        {
+          "name": "SourceSystemName",
+          "handler": {
+            "nullPercentage": "20",
+            "format": "List",
+            "listitems": "ClinicalDataRepository",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "VISGivenFlag",
+          "handler": {
+            "format": "Bool"
+          }
+        }
+      ]
+    },
+    {
+      "name": "FollowUps_MasterSpec",
+      "rowCount": "30",
+      "columns": [
+        {
+          "name": "EncounterID",
+          "handler": {
+            "format": "Reference",
+            "table": "EncountersClinicalDataRepository_MasterSpec",
+            "column": "EncounterID"
+          }
+        },
+        {
+          "name": "LocationID",
+          "handler": {
+            "format": "Reference",
+            "table": "Locations_MasterSpec",
+            "column": "LocationID"
+          }
+        },
+        {
+          "name": "Code",
+          "handler": {
+            "format": "List",
+            "listitems": "V102.8;123;34;B678.9;001.9;P098.7",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "CodeSystem",
+          "handler": {
+            "format": "List",
+            "listitems": "CPT;HCPCS",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "CodeSystemVersion",
+          "handler": {
+            "format": "Constant",
+            "value": "1"
+          }
+        },
+        {
+          "name": "Datetime",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2016",
+            "maxvalue": "01-01-2017"
+          }
+        },
+        {
+          "name": "Description",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "5"
+          }
+        },
+        {
+          "name": "Sequence",
+          "handler": {
+            "format": "Sequence",
+            "datatype": "Integer",
+            "increment": "1",
+            "startvalue": "1"
+          }
+        },
+        {
+          "name": "PatientID",
+          "handler": {
+            "format": "Reference",
+            "table": "PatientDemographicsClinicalDataRepository_MasterSpec",
+            "column": "PatientID"
+          }
+        },
+        {
+          "name": "PractitionerID",
+          "handler": {
+            "format": "Reference",
+            "table": "PractitionerRosterClinicalDataRepository_MasterSpec",
+            "column": "PractitionerID"
+          }
+        },
+        {
+          "name": "SourceSystemName",
+          "handler": {
+            "format": "Constant",
+            "value": "CDR",
+            "datatype": "Object"
+          }
+        }
+      ]
+    },
+    {
+      "name": "EMCodes_MasterSpec",
+      "rowCount": "30",
+      "columns": [
+        {
+          "name": "EncounterID",
+          "handler": {
+            "format": "Reference",
+            "table": "EncountersClinicalDataRepository_MasterSpec",
+            "column": "EncounterID"
+          }
+        },
+        {
+          "name": "LocationID",
+          "handler": {
+            "format": "Reference",
+            "table": "Locations_MasterSpec",
+            "column": "LocationID"
+          }
+        },
+        {
+          "name": "Code",
+          "handler": {
+            "format": "List",
+            "listitems": "V102.8;123;34;B678.9;001.9;P098.7",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "CodeSystem",
+          "handler": {
+            "format": "List",
+            "listitems": "CPT;HCPCS",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "CodeSystemVersion",
+          "handler": {
+            "format": "Constant",
+            "value": "1"
+          }
+        },
+        {
+          "name": "Datetime",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2016",
+            "maxvalue": "01-01-2017"
+          }
+        },
+        {
+          "name": "Description",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "8"
+          }
+        },
+        {
+          "name": "Sequence",
+          "handler": {
+            "format": "Sequence",
+            "datatype": "Integer",
+            "increment": "1",
+            "startvalue": "1"
+          }
+        },
+        {
+          "name": "PatientID",
+          "handler": {
+            "format": "Reference",
+            "table": "PatientDemographicsClinicalDataRepository_MasterSpec",
+            "column": "PatientID"
+          }
+        },
+        {
+          "name": "PractitionerID",
+          "handler": {
+            "format": "Reference",
+            "table": "PractitionerRosterClinicalDataRepository_MasterSpec",
+            "column": "PractitionerID"
+          }
+        },
+        {
+          "name": "SourceSystemName",
+          "handler": {
+            "format": "Constant",
+            "value": "CDR",
+            "datatype": "Object"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ProceduresClinicalDataRepository_MasterSpec",
+      "rowCount": "30",
+      "columns": [
+        {
+          "name": "EncounterID",
+          "handler": {
+            "format": "Reference",
+            "table": "EncountersClinicalDataRepository_MasterSpec",
+            "column": "EncounterID"
+          }
+        },
+        {
+          "name": "LocationID",
+          "handler": {
+            "format": "Reference",
+            "table": "Locations_MasterSpec",
+            "column": "LocationID"
+          }
+        },
+        {
+          "name": "Code",
+          "handler": {
+            "format": "List",
+            "listitems": "V102.8;123;34;B678.9;001.9;P098.7",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "CodeSystem",
+          "handler": {
+            "format": "List",
+            "listitems": "CPT;HCPCS",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "CodeSystemVersion",
+          "handler": {
+            "format": "Constant",
+            "value": "1"
+          }
+        },
+        {
+          "name": "Datetime",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2016",
+            "maxvalue": "01-01-2017"
+          }
+        },
+        {
+          "name": "Description",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "5"
+          }
+        },
+        {
+          "name": "Sequence",
+          "handler": {
+            "format": "Sequence",
+            "datatype": "Integer",
+            "increment": "1",
+            "startvalue": "1"
+          }
+        },
+        {
+          "name": "PatientID",
+          "handler": {
+            "format": "Reference",
+            "table": "PatientDemographicsClinicalDataRepository_MasterSpec",
+            "column": "PatientID"
+          }
+        },
+        {
+          "name": "PractitionerID",
+          "handler": {
+            "format": "Reference",
+            "table": "PractitionerRosterClinicalDataRepository_MasterSpec",
+            "column": "PractitionerID"
+          }
+        },
+        {
+          "name": "SourceSystemName",
+          "handler": {
+            "format": "Constant",
+            "value": "CDR",
+            "datatype": "Object"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PractitionerRosterClinicalDataRepository_MasterSpec",
+      "rowCount": "20",
+      "columns": [
+        {
+          "name": "ActiveFlag",
+          "handler": {
+            "format": "Bool"
+          }
+        },
+        {
+          "name": "BillingGroup",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "5"
+          }
+        },
+        {
+          "name": "EmploymentStatusDescription",
+          "handler": {
+            "format": "List",
+            "listitems": "Active;Not Active;Retired;Courtesy;Leave of Absence;Emeritus",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "PractitionerID",
+          "handler": {
+            "format": "Guid"
+          }
+        },
+        {
+          "name": "Licensure",
+          "handler": {
+            "format": "List",
+            "listitems": "MD;DO;RN;NP",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "NPI",
+          "handler": {
+            "format": "NPI"
+          }
+        },
+        {
+          "name": "FirstName",
+          "handler": {
+            "format": "CalculatedColumn",
+            "expression": "'FirstName_'+NPI"
+          }
+        },
+        {
+          "name": "LastName",
+          "handler": {
+            "format": "CalculatedColumn",
+            "expression": "'LastName_'+NPI"
+          }
+        },
+        {
+          "name": "PQRSScore",
+          "handler": {
+            "format": "Integer",
+            "minvalue": "2000",
+            "maxvalue": "3000"
+          }
+        },
+        {
+          "name": "PrimaryPhone",
+          "handler": {
+            "format": "Regex",
+            "expression": "^[2-9]\\d{2}-\\d{3}-\\d{4}$"
+          }
+        },
+        {
+          "name": "PrimaryOrganizationID",
+          "handler": {
+            "format": "Reference",
+            "table": "Organizations_MasterSpec",
+            "column": "OrganizationID"
+          }
+        },
+        {
+          "name": "PrimarySpecialtyIdentifier",
+          "handler": {
+            "format": "Regex",
+            "expression": "^\\d{10}$"
+          }
+        },
+        {
+          "name": "PrimarySpecialtyName",
+          "handler": {
+            "format": "Text",
+            "minlength": "5",
+            "maxlength": "10"
+          }
+        },
+        {
+          "name": "TIN",
+          "handler": {
+            "format": "Regex",
+            "expression": "^\\d{3}-\\d{2}-\\d{4}$"
+          }
+        },
+        {
+          "name": "SourceSystemName",
+          "handler": {
+            "format": "Constant",
+            "value": "CDR",
+            "datatype": "Object"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ProblemsAndDiagnoses_MasterSpec",
+      "rowCount": "50",
+      "columns": [
+        {
+          "name": "ChronicFlag",
+          "handler": {
+            "format": "Bool"
+          }
+        },
+        {
+          "name": "Code",
+          "handler": {
+            "format": "List",
+            "listitems": "101.12;V210.89;111.11;908.12;W23.1",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "CodeSystem",
+          "handler": {
+            "format": "List",
+            "listitems": "ICD-9-CM;ICD-10-CM",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "CodeSystemVersion",
+          "handler": {
+            "format": "List",
+            "listitems": "1.0;2.0",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "DiagnosedDate",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2016",
+            "maxvalue": "01-01-2017"
+          }
+        },
+        {
+          "name": "ResolvedDate",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-2016",
+            "maxvalue": "01-01-2017"
+          }
+        },
+        {
+          "name": "Sequence",
+          "handler": {
+            "format": "Sequence",
+            "datatype": "Integer",
+            "increment": "1",
+            "startvalue": "1"
+          }
+        },
+        {
+          "name": "EncounterID",
+          "handler": {
+            "format": "Reference",
+            "table": "EncountersClinicalDataRepository_MasterSpec",
+            "column": "EncounterID"
+          }
+        },
+        {
+          "name": "PatientID",
+          "handler": {
+            "format": "Reference",
+            "table": "PatientDemographicsClinicalDataRepository_MasterSpec",
+            "column": "PatientID"
+          }
+        },
+        {
+          "name": "PractitionerID",
+          "handler": {
+            "format": "Reference",
+            "table": "PractitionerRosterClinicalDataRepository_MasterSpec",
+            "column": "PractitionerID"
+          }
+        },
+        {
+          "name": "SourceSystemName",
+          "handler": {
+            "format": "Constant",
+            "value": "CDR",
+            "datatype": "Object"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Locations_MasterSpec",
+      "rowCount": "20",
+      "columns": [
+        {
+          "name": "CMSPlaceOfServiceCode",
+          "handler": {
+            "format": "List",
+            "listitems": "21;11;23;49",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "LocationID",
+          "handler": {
+            "format": "Guid"
+          }
+        },
+        {
+          "name": "Name",
+          "handler": {
+            "format": "Text",
+            "minlength": "5",
+            "maxlength": "25"
+          }
+        },
+        {
+          "name": "OrganizationID",
+          "handler": {
+            "format": "Reference",
+            "table": "Organizations_MasterSpec",
+            "column": "OrganizationID"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Organizations_MasterSpec",
+      "rowCount": "30",
+      "columns": [
+        {
+          "name": "Detail",
+          "handler": {
+            "format": "Text",
+            "minlength": "5",
+            "maxlength": "10"
+          }
+        },
+        {
+          "name": "Email",
+          "handler": {
+            "format": "Regex",
+            "expression": "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$"
+          }
+        },
+        {
+          "name": "Name",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "8"
+          }
+        },
+        {
+          "name": "NPI",
+          "handler": {
+            "format": "NPI"
+          }
+        },
+        {
+          "name": "OrganizationID",
+          "handler": {
+            "format": "Guid"
+          }
+        },
+        {
+          "name": "PrimaryLocationID",
+          "handler": {
+            "format": "Reference",
+            "table": "Locations_MasterSpec",
+            "column": "LocationID"
+          }
+        },
+        {
+          "name": "PrimarySpecialty",
+          "handler": {
+            "format": "List",
+            "listitems": "Cardio;Ortho;Heart;Cancer;Emergency",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "TIN",
+          "handler": {
+            "format": "Regex",
+            "expression": "^\\d{3}-\\d{2}-\\d{4}$"
+          }
+        },
+        {
+          "name": "Type",
+          "handler": {
+            "format": "List",
+            "listitems": "Member;Region;Practice;IPA;Medical Group",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "Website",
+          "handler": {
+            "format": "Regex",
+            "expression": "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$"
+          }
+        },
+        {
+          "name": "EntityLegalName",
+          "handler": {
+            "nullPercentage": "20",
+            "format": "Text",
+            "minlength": "5",
+            "maxlength": "10"
+          }
+        },
+        {
+          "name": "EntityDBAName",
+          "handler": {
+            "nullPercentage": "40",
+            "format": "Text",
+            "minlength": "5",
+            "maxlength": "10"
+          }
+        },
+        {
+          "name": "TickerSymbol",
+          "handler": {
+            "nullPercentage": "30",
+            "format": "Text",
+            "minlength": "2",
+            "maxlength": "6"
+          }
+        },
+        {
+          "name": "DUNSNumber",
+          "handler": {
+            "nullPercentage": "20",
+            "format": "Regex",
+            "expression": "^\\d{9}$"
+          }
+        }
+      ]
+    },
+    {
+      "name": "EncountersClinicalDataRepository_MasterSpec",
+      "rowCount": "40",
+      "columns": [
+        {
+          "name": "AdmissionMechanismCode",
+          "handler": {
+            "format": "Text",
+            "minlength": "2",
+            "maxlength": "3"
+          }
+        },
+        {
+          "name": "AdmissionMechanismOther",
+          "handler": {
+            "format": "Text",
+            "minlength": "2",
+            "maxlength": "3"
+          }
+        },
+        {
+          "name": "AttributionPractitionerID",
+          "handler": {
+            "format": "Reference",
+            "table": "PractitionerRosterClinicalDataRepository_MasterSpec",
+            "column": "PractitionerID"
+          }
+        },
+        {
+          "name": "CriticalCareFlag",
+          "handler": {
+            "format": "Bool"
+          }
+        },
+        {
+          "name": "DiagnosisRelatedGroup",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "5"
+          }
+        },
+        {
+          "name": "DischargeDisposition",
+          "handler": {
+            "format": "List",
+            "listitems": "Home;Expired;Other;Hospice",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "EncounterDate",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "01-01-1970",
+            "maxvalue": "01-01-2017"
+          }
+        },
+        {
+          "name": "EncounterID",
+          "handler": {
+            "format": "Sequence",
+            "datatype": "Integer",
+            "increment": "1",
+            "startvalue": "100"
+          }
+        },
+        {
+          "name": "HICNO",
+          "handler": {
+            "format": "Sequence",
+            "datatype": "Integer",
+            "increment": "1",
+            "startvalue": "1000"
+          }
+        },
+        {
+          "name": "LocationID",
+          "handler": {
+            "format": "Reference",
+            "table": "Locations_MasterSpec",
+            "column": "LocationID"
+          }
+        },
+        {
+          "name": "PatientID",
+          "handler": {
+            "format": "Reference",
+            "table": "PatientDemographicsClinicalDataRepository_MasterSpec",
+            "column": "PatientID"
+          }
+        },
+        {
+          "name": "ReasonForVisit",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "5"
+          }
+        },
+        {
+          "name": "ReferringPractitionerID",
+          "handler": {
+            "format": "Reference",
+            "table": "PractitionerRosterClinicalDataRepository_MasterSpec",
+            "column": "PractitionerID"
+          }
+        },
+        {
+          "name": "ScheduleRecordID",
+          "handler": {
+            "format": "Sequence",
+            "datatype": "Integer",
+            "increment": "1",
+            "startvalue": "500"
+          }
+        },
+        {
+          "name": "SourceSystemName",
+          "handler": {
+            "format": "Constant",
+            "value": "CDR",
+            "datatype": "Object"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PatientDemographicsClinicalDataRepository_MasterSpec",
+      "rowCount": "20",
+      "columns": [
+        {
+          "name": "DeathFlag",
+          "handler": {
+            "format": "Bool"
+          }
+        },
+        {
+          "name": "EnterpriseMasterPatientIndexNumber",
+          "handler": {
+            "format": "Integer",
+            "minvalue": "10",
+            "maxvalue": "95"
+          }
+        },
+        {
+          "name": "MedicalRecordNumber",
+          "handler": {
+            "format": "Regex",
+            "expression": "^[0-9]+$"
+          }
+        },
+        {
+          "name": "AddressCity",
+          "handler": {
+            "format": "List",
+            "listitems": "Austin;Washington DC;New York;Chicago;Los Angeles;San Francisco;Houston;Dallas;Boston",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "AddressLine1",
+          "handler": {
+            "format": "Text",
+            "minlength": "5",
+            "maxlength": "25"
+          }
+        },
+        {
+          "name": "AddressLine2",
+          "handler": {
+            "format": "Text",
+            "minlength": "5",
+            "maxlength": "25"
+          }
+        },
+        {
+          "name": "AddressState",
+          "handler": {
+            "format": "List",
+            "listitems": "Texas;California;New York;Florida",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "AddressZIPCode",
+          "handler": {
+            "format": "Regex",
+            "expression": "^\\d{5}$"
+          }
+        },
+        {
+          "name": "DateOfBirth",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "1950-01-01",
+            "maxvalue": "2017-01-01"
+          }
+        },
+        {
+          "name": "DateOfDeath",
+          "handler": {
+            "nullPercentage": "90",
+            "format": "DateTime",
+            "minvalue": "1950-01-01",
+            "maxvalue": "2017-01-01"
+          }
+        },
+        {
+          "name": "Email",
+          "handler": {
+            "format": "CalculatedColumn",
+            "expression": "MedicalRecordNumber + '@email.com'"
+          }
+        },
+        {
+          "name": "FirstName",
+          "handler": {
+            "format": "List",
+            "file": "",
+            "path": "C:\\Dev\\datageneratorplusplus\\samples\\Names.csv"
+          }
+        },
+        {
+          "name": "Gender",
+          "handler": {
+            "format": "List",
+            "listitems": "M;F",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "HomePhone",
+          "handler": {
+            "nullPercentage": "60",
+            "format": "Regex",
+            "expression": "^\\d{3}-\\d{3}-\\d{4}$"
+          }
+        },
+        {
+          "name": "PatientID",
+          "handler": {
+            "format": "Sequence",
+            "datatype": "Integer",
+            "increment": "1",
+            "startvalue": "1"
+          }
+        },
+        {
+          "name": "LastName",
+          "handler": {
+            "format": "List",
+            "file": "",
+            "path": "C:\\Dev\\datageneratorplusplus\\samples\\Names.csv"
+          }
+        },
+        {
+          "name": "MaritalStatus",
+          "handler": {
+            "format": "List",
+            "listitems": "Annulled;Married;Divorced;Interlocutory",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "MiddleName",
+          "handler": {
+            "nullPercentage": "20",
+            "format": "Constant",
+            "value": "M"
+          }
+        },
+        {
+          "name": "MobilePhone",
+          "handler": {
+            "nullPercentage": "60",
+            "format": "Regex",
+            "expression": "^\\d{3}-\\d{3}-\\d{4}$"
+          }
+        },
+        {
+          "name": "NamePrefix",
+          "handler": {
+            "nullPercentage": "20",
+            "format": "Constant",
+            "value": "Mr"
+          }
+        },
+        {
+          "name": "NameSuffix",
+          "handler": {
+            "nullPercentage": "80",
+            "format": "Constant",
+            "value": "Sr"
+          }
+        },
+        {
+          "name": "PreferredLanguage",
+          "handler": {
+            "format": "List",
+            "listitems": "Apache;Arctic;Beaver;Circle;Knik;Lime",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "Race",
+          "handler": {
+            "format": "List",
+            "listitems": "Caucasian;African;Indian;Chinese;Mixed;Unknown",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "SSN",
+          "handler": {
+            "format": "Regex",
+            "expression": "^\\d{3}-\\d{2}-\\d{4}$"
+          }
+        },
+        {
+          "name": "WorkPhone",
+          "handler": {
+            "format": "Regex",
+            "expression": "^\\d{3}-\\d{3}-\\d{4}$"
+          }
+        },
+        {
+          "name": "PCPID",
+          "handler": {
+            "format": "Reference",
+            "table": "PractitionerRosterClinicalDataRepository_MasterSpec",
+            "column": "PractitionerID"
+          }
+        },
+        {
+          "name": "SourceSystemName",
+          "handler": {
+            "format": "Constant",
+            "value": "CDR",
+            "datatype": "Object"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PatientDemographicsPatientBilling",
+      "rowCount": "1000000",
+      "columns": [
+        {
+          "name": "AddressCity",
+          "handler": {
+            "format": "List",
+            "listitems": "Austin;Washington DC;New York;Chicago;Los Angeles;San Francisco;Houston;Dallas;Boston",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "AddressLine1",
+          "handler": {
+            "format": "Text",
+            "minlength": "5",
+            "maxlength": "25"
+          }
+        },
+        {
+          "name": "AddressLine2",
+          "handler": {
+            "format": "Text",
+            "minlength": "5",
+            "maxlength": "25"
+          }
+        },
+        {
+          "name": "AddressState",
+          "handler": {
+            "format": "List",
+            "listitems": "Texas;California;New York;Florida",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "AddressZIPCode",
+          "handler": {
+            "format": "Regex",
+            "expression": "^\\d{5}$"
+          }
+        },
+        {
+          "name": "DateOfBirth",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "1950-01-01",
+            "maxvalue": "2017-01-01"
+          }
+        },
+        {
+          "name": "DateOfDeath",
+          "handler": {
+            "nullPercentage": "90",
+            "format": "DateTime",
+            "minvalue": "1950-01-01",
+            "maxvalue": "2017-01-01"
+          }
+        },
+        {
+          "name": "DeathFlag",
+          "handler": {
+            "format": "Bool"
+          }
+        },
+        {
+          "name": "Employer",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "10"
+          }
+        },
+        {
+          "name": "EnterpriseMasterPatientIndexNumber",
+          "handler": {
+            "format": "Integer",
+            "minvalue": "10",
+            "maxvalue": "95"
+          }
+        },
+        {
+          "name": "Ethnicity",
+          "handler": {
+            "format": "List",
+            "listitems": "Asian;African;Native Indian;Other",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "FIPSCode",
+          "handler": {
+            "nullPercentage": "60",
+            "format": "Regex",
+            "expression": "^\\d{5}$"
+          }
+        },
+        {
+          "name": "FirstName",
+          "handler": {
+            "format": "List",
+            "file": "",
+            "path": "C:\\Dev\\datageneratorplusplus\\samples\\Names.csv"
+          }
+        },
+        {
+          "name": "Gender",
+          "handler": {
+            "format": "List",
+            "listitems": "M;F;UN",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "HICNO",
+          "handler": {
+            "format": "Guid"
+          }
+        },
+        {
+          "name": "HomePhone",
+          "handler": {
+            "nullPercentage": "60",
+            "format": "Regex",
+            "expression": "^\\d{3}-\\d{3}-\\d{4}$"
+          }
+        },
+        {
+          "name": "LastName",
+          "handler": {
+            "format": "List",
+            "file": "",
+            "path": "C:\\Dev\\datageneratorplusplus\\samples\\Names.csv"
+          }
+        },
+        {
+          "name": "MaritalStatus",
+          "handler": {
+            "format": "List",
+            "listitems": "Annulled;Married;Divorced;Interlocutory",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "MedicalRecordNumber",
+          "handler": {
+            "format": "Regex",
+            "expression": "^[0-9]+$"
+          }
+        },
+        {
+          "name": "MiddleName",
+          "handler": {
+            "nullPercentage": "20",
+            "format": "Constant",
+            "value": "M"
+          }
+        },
+        {
+          "name": "MobilePhone",
+          "handler": {
+            "nullPercentage": "60",
+            "format": "Regex",
+            "expression": "^\\d{3}-\\d{3}-\\d{4}$"
+          }
+        },
+        {
+          "name": "NamePrefix",
+          "handler": {
+            "nullPercentage": "20",
+            "format": "Constant",
+            "value": "Mr"
+          }
+        },
+        {
+          "name": "NameSuffix",
+          "handler": {
+            "nullPercentage": "80",
+            "format": "Constant",
+            "value": "Sr"
+          }
+        },
+        {
+          "name": "NewPatientFlag",
+          "handler": {
+            "format": "Bool"
+          }
+        },
+        {
+          "name": "PCPID",
+          "handler": {
+            "format": "Regex",
+            "expression": "^\\d{3}-\\d{2}-\\d{4}$"
+          }
+        },
+        {
+          "name": "PCPNPI",
+          "handler": {
+            "format": "Regex",
+            "expression": "^\\d{3}-\\d{2}-\\d{4}$"
+          }
+        },
+        {
+          "name": "PCPName",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "6"
+          }
+        },
+        {
+          "name": "PatientID",
+          "handler": {
+            "format": "Sequence",
+            "datatype": "Integer",
+            "increment": "1",
+            "startvalue": "1"
+          }
+        },
+        {
+          "name": "PreferredCommunicationChannel",
+          "handler": {
+            "format": "List",
+            "listitems": "Phone;Text;Email;Person",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "PreferredLanguage",
+          "handler": {
+            "format": "List",
+            "listitems": "Apache;Arctic;Beaver;Circle;Knik;Lime",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "Race",
+          "handler": {
+            "format": "List",
+            "listitems": "Caucasian;African;Indian;Chinese;Mixed;Unknown",
+            "seperator": ";"
+          }
+        },
+        {
+          "name": "SSN",
+          "handler": {
+            "format": "Regex",
+            "expression": "^\\d{3}-\\d{2}-\\d{4}$"
+          }
+        },
+        {
+          "name": "WorkPhone",
+          "handler": {
+            "format": "Regex",
+            "expression": "^\\d{3}-\\d{3}-\\d{4}$"
+          }
+        },
+        {
+          "name": "Email",
+          "handler": {
+            "format": "CalculatedColumn",
+            "expression": "MedicalRecordNumber + '@email.com'"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Encounter",
+      "rowCount": "200",
+      "columns": [
+        {
+          "name": "PatientID",
+          "handler": {
+            "format": "Integer",
+            "minvalue": "1",
+            "maxvalue": "20"
+          }
+        },
+        {
+          "name": "EncounterID",
+          "handler": {
+            "format": "Integer",
+            "minvalue": "2000",
+            "maxvalue": "4000"
+          }
+        },
+        {
+          "name": "AdmissionTimestamp",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "2017-01-01",
+            "maxvalue": "2017-07-01"
+          }
+        },
+        {
+          "name": "DischargeTimestamp",
+          "handler": {
+            "format": "DateTime",
+            "minvalue": "2017-01-01",
+            "maxvalue": "2017-07-01"
+          }
+        },
+        {
+          "name": "DischargeDisposition",
+          "handler": {
+            "format": "Integer",
+            "minvalue": "0",
+            "maxvalue": "100"
+          }
+        },
+        {
+          "name": "AdmissionType",
+          "handler": {
+            "format": "Integer",
+            "minvalue": "1",
+            "maxvalue": "10"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Procedure",
+      "rowCount": "1000",
+      "columns": [
+        {
+          "name": "EncounterID",
+          "handler": {
+            "format": "Reference",
+            "table": "Encounter",
+            "column": "EncounterID"
+          }
+        },
+        {
+          "name": "Code",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "5"
+          }
+        },
+        {
+          "name": "CodeSystem",
+          "handler": {
+            "format": "Constant",
+            "value": "ICD-10-PCS",
+            "datatype": "Object"
+          }
+        },
+        {
+          "name": "Sequence",
+          "handler": {
+            "format": "Sequence",
+            "datatype": "Integer",
+            "increment": "1",
+            "startvalue": "1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Diagnoses",
+      "rowCount": "1000",
+      "columns": [
+        {
+          "name": "EncounterID",
+          "handler": {
+            "format": "Reference",
+            "table": "Encounter",
+            "column": "EncounterID"
+          }
+        },
+        {
+          "name": "Code",
+          "handler": {
+            "format": "Text",
+            "minlength": "3",
+            "maxlength": "5"
+          }
+        },
+        {
+          "name": "CodeSystem",
+          "handler": {
+            "format": "Constant",
+            "value": "ICD-10-CM",
+            "datatype": "Object"
+          }
+        },
+        {
+          "name": "Sequence",
+          "handler": {
+            "format": "Sequence",
+            "datatype": "Integer",
+            "increment": "1",
+            "startvalue": "1"
+          }
+        }
+      ]
+    }
+  ]
+}
