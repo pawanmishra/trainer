@@ -13,7 +13,7 @@ class DataGenerator(table: Table, outputActor: ActorRef) extends Actor {
   import DataGenerator._
   implicit val ec = ExecutionContext.global
 
-  private[this] val data = scala.collection.mutable.Map[String, List[Option[String]]]()
+  private[this] val data = scala.collection.mutable.Map[String, Vector[String]]()
   println(s"Starting actor ${context.self.path}")
 
   private[this] def getReferencedData(column: Column): Unit = {
@@ -28,18 +28,18 @@ class DataGenerator(table: Table, outputActor: ActorRef) extends Actor {
   }
 
   private[this] def sendToWriter() : Unit = {
-    println(s"Context : ${context.self.path} -- ${data.keys.mkString("!")}")
+    //println(s"Context : ${context.self.path} -- ${data.keys.mkString("!")}")
     if (table.columns.forall(x => data.contains(x.name) && data(x.name).size == table.rowCount))
       outputActor ! Record(table.name, data.toMap)
   }
 
   override def receive: Receive = {
     case Generate => {
-      table.columns.filter(x => x.format == "Reference").foreach(getReferencedData)
       table.columns.filter(x => x.format != "Reference").foreach(column => {
         val columnValues = column.columnHandler.generateData(table.rowCount)
         data.put(column.name, columnValues)
       })
+      table.columns.filter(x => x.format == "Reference").foreach(getReferencedData)
       sendToWriter()
     }
     case Fetch(sourceColumn, targetColumn) => {
@@ -57,5 +57,5 @@ object DataGenerator {
   def props(table: Table, outputActor: ActorRef) = Props(new DataGenerator(table, outputActor))
   case object Generate
   case class Fetch(sourceColumn: String, targetColumn: String)
-  case class Received(column: String, record: List[Option[String]])
+  case class Received(column: String, record: Vector[String])
 }

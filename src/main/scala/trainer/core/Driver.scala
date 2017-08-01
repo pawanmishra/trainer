@@ -5,7 +5,7 @@ import akka.actor.{Actor, ActorRef, Props}
 /**
   * Created by mishrapaw on 6/17/17.
   */
-class Driver(outputActor: ActorRef) extends Actor {
+class Driver(outputLocation: String) extends Actor {
   import Driver._
 
   var tableActors = scala.collection.mutable.Map[String, ActorRef]()
@@ -13,6 +13,7 @@ class Driver(outputActor: ActorRef) extends Actor {
   override def receive: Receive = {
     case Tables(tables) => {
       tables.foreach(table => {
+        val outputActor = context.actorOf(CsvWriter.props(outputLocation), table.name + "_outputActor")
         val actor = context.actorOf(DataGenerator.props(table, outputActor), table.name)
         tableActors.put(table.name, actor)
       })
@@ -22,6 +23,6 @@ class Driver(outputActor: ActorRef) extends Actor {
 }
 
 object Driver {
-  def props(outputActor: ActorRef) = Props(new Driver(outputActor))
+  def props(outputLocation: String) = Props(new Driver(outputLocation))
   case class Tables(tables: List[Table])
 }

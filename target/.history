@@ -1,7 +1,0 @@
-compile
-assembly
-run --xml test
-assembly
-run --xml test
-assembly
-run --xml test

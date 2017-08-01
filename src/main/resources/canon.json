@@ -1,8 +1,8 @@
 {
-  "Tables": [
+  "tables": [
     {
       "name": "SocialHistory_MasterSpec",
-      "rowCount": "30",
+      "rowCount": 3000,
       "columns": [
         {
           "name": "Element",
@@ -16,8 +16,8 @@
           "name": "EncounterDate",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2015",
-            "maxvalue": "01-01-2017"
+            "minvalue": "2015-01-01",
+            "maxvalue": "2017-01-01"
           }
         },
         {
@@ -64,7 +64,7 @@
     },
     {
       "name": "EncounterPractitionersClinicalDataRepository_MasterSpec",
-      "rowCount": "30",
+      "rowCount": 3000,
       "columns": [
         {
           "name": "EncounterID",
@@ -104,7 +104,7 @@
     },
     {
       "name": "HealthMaintenanceModifiers_MasterSpec",
-      "rowCount": "30",
+      "rowCount": 3000,
       "columns": [
         {
           "name": "Code",
@@ -133,8 +133,8 @@
           "name": "Datetime",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2016",
-            "maxvalue": "01-01-2017"
+            "minvalue": "2016-01-01",
+            "maxvalue": "2017-01-01"
           }
         },
         {
@@ -198,14 +198,14 @@
     },
     {
       "name": "PatientsPayersBridge_MasterSpec",
-      "rowCount": "30",
+      "rowCount": 3000,
       "columns": [
         {
           "name": "EffectiveDate",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2010",
-            "maxvalue": "01-01-2017"
+            "minvalue": "2010-01-01",
+            "maxvalue": "2017-01-01"
           }
         },
         {
@@ -260,20 +260,20 @@
           "name": "TerminationDate",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2017",
-            "maxvalue": "01-01-2019"
+            "minvalue": "2017-01-01",
+            "maxvalue": "2019-01-01"
           }
         }
       ]
     },
     {
       "name": "PayersAndPlansMasterClinicalDataRepository_MasterSpec",
-      "rowCount": "30",
+      "rowCount": 3000,
       "columns": [
         {
           "name": "ActiveFlag",
           "handler": {
-            "format": "Bool"
+            "format": "Boolean"
           }
         },
         {
@@ -327,7 +327,7 @@
     },
     {
       "name": "Allergies_MasterSpec",
-      "rowCount": "30",
+      "rowCount": 3000,
       "columns": [
         {
           "name": "AllergenCode",
@@ -371,16 +371,16 @@
           "name": "EndDate",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2017",
-            "maxvalue": "01-01-2018"
+            "minvalue": "2017-01-01",
+            "maxvalue": "2018-01-01"
           }
         },
         {
           "name": "OnsetDate",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2015",
-            "maxvalue": "01-01-2017"
+            "minvalue": "2015-01-01",
+            "maxvalue": "2017-01-01"
           }
         },
         {
@@ -419,7 +419,7 @@
     },
     {
       "name": "LabResults_MasterSpec",
-      "rowCount": "30",
+      "rowCount": 3000000,
       "columns": [
         {
           "name": "Code",
@@ -457,8 +457,8 @@
           "name": "OrderDate",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2016",
-            "maxvalue": "01-01-2017"
+            "minvalue": "2016-01-01",
+            "maxvalue": "2017-01-01"
           }
         },
         {
@@ -481,8 +481,8 @@
           "name": "ResultDate",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2016",
-            "maxvalue": "01-01-2017"
+            "minvalue": "2016-01-01",
+            "maxvalue": "2017-01-01"
           }
         },
         {
@@ -513,7 +513,7 @@
     },
     {
       "name": "VitalSigns_MasterSpec",
-      "rowCount": "30",
+      "rowCount": 3000,
       "columns": [
         {
           "name": "Code",
@@ -551,8 +551,8 @@
           "name": "RecordDateTime",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2016",
-            "maxvalue": "01-01-2018"
+            "minvalue": "2016-01-01",
+            "maxvalue": "2018-01-01"
           }
         },
         {
@@ -582,70 +582,8 @@
       ]
     },
     {
-      "name": "PractitionerOrganizationLocation_MasterSpec",
-      "rowCount": "30",
-      "columns": [
-        {
-          "name": "LocationID",
-          "handler": {
-            "format": "Reference",
-            "table": "Locations_MasterSpec",
-            "column": "LocationID"
-          }
-        },
-        {
-          "name": "OrganizationID",
-          "handler": {
-            "format": "Reference",
-            "table": "OrganizationsRelationships_MasterSpec",
-            "column": "OrganizationID"
-          }
-        },
-        {
-          "name": "PractitionerID",
-          "handler": {
-            "format": "Reference",
-            "table": "PractitionerRosterClinicalDataRepository_MasterSpec",
-            "column": "PractitionerID"
-          }
-        },
-        {
-          "name": "RelationshipStartDate",
-          "handler": {
-            "format": "DateTime",
-            "minvalue": "01-01-2015",
-            "maxvalue": "01-01-2017"
-          }
-        },
-        {
-          "name": "RelationshipStopDate",
-          "handler": {
-            "format": "DateTime",
-            "minvalue": "01-01-2016",
-            "maxvalue": "01-01-2018"
-          }
-        },
-        {
-          "name": "Role",
-          "handler": {
-            "format": "List",
-            "listitems": "207WX0009X;207WX0107X;207WX0108X",
-            "seperator": ";"
-          }
-        },
-        {
-          "name": "SourceSystemName",
-          "handler": {
-            "format": "Constant",
-            "value": "Credentialing",
-            "datatype": "Object"
-          }
-        }
-      ]
-    },
-    {
       "name": "Medications_MasterSpec",
-      "rowCount": "30",
+      "rowCount": 3000,
       "columns": [
         {
           "name": "BrandName",
@@ -674,7 +612,7 @@
         {
           "name": "DeleteFlag",
           "handler": {
-            "format": "Bool"
+            "format": "Boolean"
           }
         },
         {
@@ -691,12 +629,6 @@
             "format": "Text",
             "minlength": "3",
             "maxlength": "8"
-          }
-        },
-        {
-          "name": "MedicationRecordID",
-          "handler": {
-            "format": "NPI"
           }
         },
         {
@@ -727,85 +659,23 @@
           "name": "StartDate",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2016",
-            "maxvalue": "01-01-2017"
+            "minvalue": "2016-01-01",
+            "maxvalue": "2017-01-01"
           }
         },
         {
           "name": "StopDate",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2017",
-            "maxvalue": "01-01-2018"
-          }
-        }
-      ]
-    },
-    {
-      "name": "OrganizationsRelationships_MasterSpec",
-      "rowCount": "30",
-      "columns": [
-        {
-          "name": "OrganizationID",
-          "handler": {
-            "format": "Reference",
-            "table": "Organizations_MasterSpec",
-            "column": "OrganizationID"
-          }
-        },
-        {
-          "name": "ReferenceType",
-          "handler": {
-            "format": "List",
-            "listitems": "Parent Child",
-            "seperator": ";"
-          }
-        },
-        {
-          "name": "ReferencedOrganizationID",
-          "handler": {
-            "format": "Reference",
-            "table": "Organizations_MasterSpec",
-            "column": "OrganizationID"
-          }
-        },
-        {
-          "name": "RelationshipStartDate",
-          "handler": {
-            "format": "DateTime",
-            "minvalue": "01-01-2016",
-            "maxvalue": "01-01-2017"
-          }
-        },
-        {
-          "name": "RelationshipStopDate",
-          "handler": {
-            "format": "DateTime",
-            "minvalue": "01-01-2017",
-            "maxvalue": "01-01-2018"
-          }
-        },
-        {
-          "name": "RelationshipType",
-          "handler": {
-            "format": "List",
-            "listitems": "OrgHierarchy",
-            "seperator": ";"
-          }
-        },
-        {
-          "name": "SourceSystemName",
-          "handler": {
-            "format": "Constant",
-            "value": "Credentialing",
-            "datatype": "Object"
+            "minvalue": "2017-01-01",
+            "maxvalue": "2018-01-01"
           }
         }
       ]
     },
     {
       "name": "Immunizations_MasterSpec",
-      "rowCount": "30",
+      "rowCount": 6000000,
       "columns": [
         {
           "name": "Code",
@@ -827,8 +697,8 @@
           "name": "Date",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2016",
-            "maxvalue": "01-01-2017"
+            "minvalue": "2016-01-01",
+            "maxvalue": "2017-01-01"
           }
         },
         {
@@ -875,14 +745,14 @@
         {
           "name": "VISGivenFlag",
           "handler": {
-            "format": "Bool"
+            "format": "Boolean"
           }
         }
       ]
     },
     {
       "name": "FollowUps_MasterSpec",
-      "rowCount": "30",
+      "rowCount": 3000,
       "columns": [
         {
           "name": "EncounterID",
@@ -927,8 +797,8 @@
           "name": "Datetime",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2016",
-            "maxvalue": "01-01-2017"
+            "minvalue": "2016-01-01",
+            "maxvalue": "2017-01-01"
           }
         },
         {
@@ -976,7 +846,7 @@
     },
     {
       "name": "EMCodes_MasterSpec",
-      "rowCount": "30",
+      "rowCount": 3000,
       "columns": [
         {
           "name": "EncounterID",
@@ -1021,8 +891,8 @@
           "name": "Datetime",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2016",
-            "maxvalue": "01-01-2017"
+            "minvalue": "2016-01-01",
+            "maxvalue": "2017-10-01"
           }
         },
         {
@@ -1070,7 +940,7 @@
     },
     {
       "name": "ProceduresClinicalDataRepository_MasterSpec",
-      "rowCount": "30",
+      "rowCount": 3000,
       "columns": [
         {
           "name": "EncounterID",
@@ -1115,8 +985,8 @@
           "name": "Datetime",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2016",
-            "maxvalue": "01-01-2017"
+            "minvalue": "2016-01-01",
+            "maxvalue": "2017-01-01"
           }
         },
         {
@@ -1164,12 +1034,12 @@
     },
     {
       "name": "PractitionerRosterClinicalDataRepository_MasterSpec",
-      "rowCount": "20",
+      "rowCount": 200000,
       "columns": [
         {
           "name": "ActiveFlag",
           "handler": {
-            "format": "Bool"
+            "format": "Boolean"
           }
         },
         {
@@ -1203,26 +1073,6 @@
           }
         },
         {
-          "name": "NPI",
-          "handler": {
-            "format": "NPI"
-          }
-        },
-        {
-          "name": "FirstName",
-          "handler": {
-            "format": "CalculatedColumn",
-            "expression": "'FirstName_'+NPI"
-          }
-        },
-        {
-          "name": "LastName",
-          "handler": {
-            "format": "CalculatedColumn",
-            "expression": "'LastName_'+NPI"
-          }
-        },
-        {
           "name": "PQRSScore",
           "handler": {
             "format": "Integer",
@@ -1240,9 +1090,7 @@
         {
           "name": "PrimaryOrganizationID",
           "handler": {
-            "format": "Reference",
-            "table": "Organizations_MasterSpec",
-            "column": "OrganizationID"
+            "format": "Guid"
           }
         },
         {
@@ -1279,12 +1127,12 @@
     },
     {
       "name": "ProblemsAndDiagnoses_MasterSpec",
-      "rowCount": "50",
+      "rowCount": 5000,
       "columns": [
         {
           "name": "ChronicFlag",
           "handler": {
-            "format": "Bool"
+            "format": "Boolean"
           }
         },
         {
@@ -1315,16 +1163,16 @@
           "name": "DiagnosedDate",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2016",
-            "maxvalue": "01-01-2017"
+            "minvalue": "2016-01-01",
+            "maxvalue": "2017-01-01"
           }
         },
         {
           "name": "ResolvedDate",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-2016",
-            "maxvalue": "01-01-2017"
+            "minvalue": "2016-01-01",
+            "maxvalue": "2017-01-01"
           }
         },
         {
@@ -1372,7 +1220,7 @@
     },
     {
       "name": "Locations_MasterSpec",
-      "rowCount": "20",
+      "rowCount": 200000,
       "columns": [
         {
           "name": "CMSPlaceOfServiceCode",
@@ -1408,7 +1256,7 @@
     },
     {
       "name": "Organizations_MasterSpec",
-      "rowCount": "30",
+      "rowCount": 3000,
       "columns": [
         {
           "name": "Detail",
@@ -1431,12 +1279,6 @@
             "format": "Text",
             "minlength": "3",
             "maxlength": "8"
-          }
-        },
-        {
-          "name": "NPI",
-          "handler": {
-            "format": "NPI"
           }
         },
         {
@@ -1522,7 +1364,7 @@
     },
     {
       "name": "EncountersClinicalDataRepository_MasterSpec",
-      "rowCount": "40",
+      "rowCount": 5000000,
       "columns": [
         {
           "name": "AdmissionMechanismCode",
@@ -1551,7 +1393,7 @@
         {
           "name": "CriticalCareFlag",
           "handler": {
-            "format": "Bool"
+            "format": "Boolean"
           }
         },
         {
@@ -1574,8 +1416,8 @@
           "name": "EncounterDate",
           "handler": {
             "format": "DateTime",
-            "minvalue": "01-01-1970",
-            "maxvalue": "01-01-2017"
+            "minvalue": "1970-01-01",
+            "maxvalue": "2017-01-01"
           }
         },
         {
@@ -1649,12 +1491,12 @@
     },
     {
       "name": "PatientDemographicsClinicalDataRepository_MasterSpec",
-      "rowCount": "20",
+      "rowCount": 200000,
       "columns": [
         {
           "name": "DeathFlag",
           "handler": {
-            "format": "Bool"
+            "format": "Boolean"
           }
         },
         {
@@ -1729,21 +1571,6 @@
           }
         },
         {
-          "name": "Email",
-          "handler": {
-            "format": "CalculatedColumn",
-            "expression": "MedicalRecordNumber + '@email.com'"
-          }
-        },
-        {
-          "name": "FirstName",
-          "handler": {
-            "format": "List",
-            "file": "",
-            "path": "C:\\Dev\\datageneratorplusplus\\samples\\Names.csv"
-          }
-        },
-        {
           "name": "Gender",
           "handler": {
             "format": "List",
@@ -1766,14 +1593,6 @@
             "datatype": "Integer",
             "increment": "1",
             "startvalue": "1"
-          }
-        },
-        {
-          "name": "LastName",
-          "handler": {
-            "format": "List",
-            "file": "",
-            "path": "C:\\Dev\\datageneratorplusplus\\samples\\Names.csv"
           }
         },
         {
@@ -1866,7 +1685,7 @@
     },
     {
       "name": "PatientDemographicsPatientBilling",
-      "rowCount": "1000000",
+      "rowCount": 10000,
       "columns": [
         {
           "name": "AddressCity",
@@ -1927,7 +1746,7 @@
         {
           "name": "DeathFlag",
           "handler": {
-            "format": "Bool"
+            "format": "Boolean"
           }
         },
         {
@@ -1963,14 +1782,6 @@
           }
         },
         {
-          "name": "FirstName",
-          "handler": {
-            "format": "List",
-            "file": "",
-            "path": "C:\\Dev\\datageneratorplusplus\\samples\\Names.csv"
-          }
-        },
-        {
           "name": "Gender",
           "handler": {
             "format": "List",
@@ -1990,14 +1801,6 @@
             "nullPercentage": "60",
             "format": "Regex",
             "expression": "^\\d{3}-\\d{3}-\\d{4}$"
-          }
-        },
-        {
-          "name": "LastName",
-          "handler": {
-            "format": "List",
-            "file": "",
-            "path": "C:\\Dev\\datageneratorplusplus\\samples\\Names.csv"
           }
         },
         {
@@ -2050,7 +1853,7 @@
         {
           "name": "NewPatientFlag",
           "handler": {
-            "format": "Bool"
+            "format": "Boolean"
           }
         },
         {
@@ -2122,18 +1925,11 @@
             "expression": "^\\d{3}-\\d{3}-\\d{4}$"
           }
         },
-        {
-          "name": "Email",
-          "handler": {
-            "format": "CalculatedColumn",
-            "expression": "MedicalRecordNumber + '@email.com'"
-          }
-        }
       ]
     },
     {
       "name": "Encounter",
-      "rowCount": "200",
+      "rowCount": 200000,
       "columns": [
         {
           "name": "PatientID",
@@ -2187,7 +1983,7 @@
     },
     {
       "name": "Procedure",
-      "rowCount": "1000",
+      "rowCount": 10000,
       "columns": [
         {
           "name": "EncounterID",
@@ -2226,7 +2022,7 @@
     },
     {
       "name": "Diagnoses",
-      "rowCount": "1000",
+      "rowCount": 1000,
       "columns": [
         {
           "name": "EncounterID",

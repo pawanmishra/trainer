@@ -20,8 +20,7 @@ class Main(args: Array[String]) {
     val tables = Parser.map(inputJson)
 
     implicit val system = ActorSystem()
-    val outputActor = system.actorOf(CsvWriter.props(outputLocation), "outputActor")
-    val driver = system.actorOf(Driver.props(outputActor), "driver")
+    val driver = system.actorOf(Driver.props(outputLocation), "driver")
     driver ! Tables(tables)
   }
 }

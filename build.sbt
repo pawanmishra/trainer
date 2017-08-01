@@ -11,7 +11,8 @@ libraryDependencies ++= Seq (
   "com.typesafe.akka" %% "akka-slf4j" % "2.5.2",
   "commons-cli" % "commons-cli" % "1.4",
   "org.scalatest" %% "scalatest" % "3.0.3" % "test",
-  "org.json4s" %% "json4s-native" % "3.5.2"
+  "org.json4s" %% "json4s-native" % "3.5.2",
+  "joda-time" % "joda-time" % "2.9.9"
 )
 
 mainClass in (Compile, run) := Some("trainer.Main")

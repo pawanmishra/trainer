@@ -16,6 +16,11 @@ case class Column(name: String, handler: Map[String, String]) {
       case "Guid" => new ColumnHandler(handler) with GuidHandler
       case "Reference" => new ColumnHandler(handler) with ReferenceHandler
       case "Regex" => new ColumnHandler(handler) with RegexHandler
+      case "Text" => new ColumnHandler(handler) with TextHandler
+      case "Constant" => new ColumnHandler(handler) with ConstantHandler
+      case "List" => new ColumnHandler(handler) with ListHandler
+      case "DateTime" => new ColumnHandler(handler) with DateTimeHandler
+      case "Sequence" => new ColumnHandler(handler) with SequenceHandler
       case _ => throw new IllegalArgumentException(s"Invalid column format value : ${handler("format")}")
     }
   }
@@ -23,35 +28,32 @@ case class Column(name: String, handler: Map[String, String]) {
 
 class ColumnHandler(val properties: Map[String, String]) {
 
-  def getNullIndices(nullPercentage: Int, totalCount: Int): Set[Int] = {
+  import Timer._
+
+  private def getNullIndices(nullPercentage: Int, totalCount: Int): Set[Int] = {
     val numOfRecords = (nullPercentage * totalCount) / 100
     val indices = for (_ <- 1 to numOfRecords) yield scala.util.Random.nextInt(totalCount)
     indices.toSet
   }
 
-  def generateData(rowCount: Int): List[Option[String]] = {
-    val nullIndices = getNullIndices(properties("nullPercentage").toInt, rowCount)
-    val data = for (i <- 1 to rowCount) yield if (nullIndices.contains(i)) None else generate()
-    data.toList
+  def generateData(rowCount: Int): Vector[String] = {
+      val nullPercentage = properties.getOrElse("nullPercentage", "0").toInt
+      val nullIndices = getNullIndices(nullPercentage, rowCount)
+      val data = for (i <- 1 to rowCount) yield if (nullIndices.contains(i)) "" else generate()
+      data.toVector
   }
 
-  def generateData(rowCount: Int, values: List[Option[String]]): List[Option[String]] = {
-    val nullIndices = getNullIndices(properties("nullPercentage").toInt, rowCount)
-    val data = for (i <- 1 to rowCount) yield if (nullIndices.contains(i)) None else generate(values)
-    data.toList
+  def generateData(rowCount: Int, values: Vector[String]): Vector[String] = {
+    time {
+      val nullPercentage = properties.getOrElse("nullPercentage", "0").toInt
+      val nullIndices = getNullIndices(nullPercentage, rowCount)
+      val notNullValues = values.filter(!_.isEmpty).toVector
+      val data = for (i <- 1 to rowCount) yield if (nullIndices.contains(i)) "" else generate(notNullValues)
+      data.toVector
+    } (s"Generated ${properties.get("format")} -- $rowCount data!!")
   }
 
-  protected def generate(): Option[String] = None
+  protected def generate(): String = ""
 
-  protected def generate(values: List[Option[String]]): Option[String] = None
-}
-
-
-object FekuImplicits {
-
-  /*implicit def stringToInt(input: String)(implicit default: Int = 0): Int = {
-    val intOption = Try { input.toInt }
-    intOption.toOption.fold(default)(x => x)
-  }*/
-
+  protected def generate(values: Vector[String]): String = ""
 }
