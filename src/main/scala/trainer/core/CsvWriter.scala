@@ -9,7 +9,7 @@ import scala.util.control.NonFatal
 /**
   * Created by mishrapaw on 6/22/17.
   */
-case class Record(table: String, data: Map[String, Vector[String]])
+case class Record(table: String, data: Map[String, Vector[Any]])
 
 class CsvWriter(outputLocation: String) extends Actor {
 
@@ -46,11 +46,11 @@ class CsvWriter(outputLocation: String) extends Actor {
           writer.write(x.fold("")(a => a))
           writer.write("\n")
         })*/
-      }
-      // sender() ! PoisonPill
+      }(table)
+      //sender() ! PoisonPill
   }
 
-  private def process[R <: { def close():Unit }, T](resource: => R)(f: R => T) = {
+  private def process[R <: { def close():Unit }, T](resource: => R)(f: R => T)(implicit message: String = "") = {
     var res: Option[R] = None
     try {
       res = Some(resource)         // Only reference "resource" once!!
@@ -59,7 +59,7 @@ class CsvWriter(outputLocation: String) extends Actor {
       case NonFatal(ex) => println(s"Non fatal exception! $ex")
     } finally {
       if (res.isDefined) {
-        println(s"Closing resource...")
+        println(s"Closing resource...$message")
         res.get.close
       }
     }

@@ -66,3 +66,5 @@ src/main/java/
 src/main/scala-2.12/
 src/test/java/
 src/test/scala-2.12/
+.idea/
+src/main/resources/*.json

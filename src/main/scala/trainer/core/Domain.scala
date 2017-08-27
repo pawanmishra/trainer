@@ -21,6 +21,7 @@ case class Column(name: String, handler: Map[String, String]) {
       case "List" => new ColumnHandler(handler) with ListHandler
       case "DateTime" => new ColumnHandler(handler) with DateTimeHandler
       case "Sequence" => new ColumnHandler(handler) with SequenceHandler
+      case "Double" => new ColumnHandler(handler) with DoubleHandler
       case _ => throw new IllegalArgumentException(s"Invalid column format value : ${handler("format")}")
     }
   }
@@ -36,24 +37,20 @@ class ColumnHandler(val properties: Map[String, String]) {
     indices.toSet
   }
 
-  def generateData(rowCount: Int): Vector[String] = {
+  def generateData(rowCount: Int): Vector[Any] = {
       val nullPercentage = properties.getOrElse("nullPercentage", "0").toInt
       val nullIndices = getNullIndices(nullPercentage, rowCount)
-      val data = for (i <- 1 to rowCount) yield if (nullIndices.contains(i)) "" else generate()
-      data.toVector
+      generate(rowCount, nullIndices)
   }
 
-  def generateData(rowCount: Int, values: Vector[String]): Vector[String] = {
-    time {
+  def generateData(rowCount: Int, values: Vector[Any]): Vector[Any] = {
       val nullPercentage = properties.getOrElse("nullPercentage", "0").toInt
       val nullIndices = getNullIndices(nullPercentage, rowCount)
-      val notNullValues = values.filter(!_.isEmpty).toVector
-      val data = for (i <- 1 to rowCount) yield if (nullIndices.contains(i)) "" else generate(notNullValues)
-      data.toVector
-    } (s"Generated ${properties.get("format")} -- $rowCount data!!")
+      val notNullValues = values.filter(!_.toString.isEmpty)
+      generate(rowCount, nullIndices, notNullValues)
   }
 
-  protected def generate(): String = ""
+  protected def generate(rowCount: Int, nullIndices: Set[Int]): Vector[Any] = Vector.empty
 
-  protected def generate(values: Vector[String]): String = ""
+  protected def generate(rowCount: Int, nullIndices: Set[Int], values: Vector[Any]): Vector[Any] = Vector.empty
 }
