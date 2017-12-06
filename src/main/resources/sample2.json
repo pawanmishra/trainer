@@ -1,0 +1,68 @@
+{
+  "tables": [
+    {
+      "name": "patients",
+      "rowCount": 2000,
+      "columns": [
+        {
+          "name": "patient_id",
+          "handler": { "format": "Integer", "min": "0", "max": "100" }
+        },
+        {
+          "name": "meta__feed_name",
+          "handler": { "format": "Constant", "value": "Test" }
+        }
+      ]
+    },
+    {
+      "name": "encounters",
+      "rowCount": 150000,
+      "columns": [
+        {
+          "name": "encounter_id",
+          "handler": { "format": "Integer", "minvalue": "100", "maxvalue": "500" }
+        },
+        {
+          "name": "meta__feed_name",
+          "handler": { "format": "List", "listitems": "abc;epic;cerner;optum;", "seperator": ";" }
+        },
+        {
+          "name": "meta__row_number",
+          "handler": { "format": "Sequence", "increment": "1", "startvalue": "1" }
+        },
+        {
+          "name": "meta__lineage_id",
+          "handler": { "format": "Constant", "value": "1001" }
+        },
+        {
+          "name": "patient_id",
+          "handler": { "format": "Reference", "table": "patients", "column": "patient_id" }
+        },
+        {
+          "name": "inpatient_outpatient_flag",
+          "handler": { "format": "Constant", "value": "I" }
+        },
+        {
+          "name": "admission_datetime",
+          "handler": { "format": "DateTime", "minvalue": "2016-01-01", "maxvalue": "2016-10-01" }
+        },
+        {
+          "name": "discharge_datetime",
+          "handler": { "format": "DateTime", "minvalue": "2016-01-01", "maxvalue": "2016-10-01" }
+        },
+        {
+          "name": "discharge_disposition",
+          "handler": { "format": "Constant", "value": "02" }
+        },
+        {
+          "name": "dateof_birth",
+          "handler": { "format": "DateTime", "minvalue": "2016-01-01", "maxvalue": "2016-10-01" }
+        },
+        {
+          "name": "gender",
+          "handler": { "format": "Constant", "value": "M" }
+        }
+      ]
+    }
+  ]
+}

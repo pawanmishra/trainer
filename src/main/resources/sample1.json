@@ -1,0 +1,160 @@
+{
+  "tables": [
+    {
+      "name": "patients",
+      "rowCount": 1,
+      "columns": [
+        {
+          "name": "patient_id",
+          "handler": { "format": "Integer", "min": "0", "max": "100" }
+        },
+        {
+          "name": "meta__feed_name",
+          "handler": { "format": "Constant", "value": "Test" }
+        }
+      ]
+    },
+    {
+      "name": "encounters",
+      "rowCount": 5,
+      "columns": [
+        {
+          "name": "encounter_id",
+          "handler": { "format": "Integer", "min": "100", "max": "1000" }
+        },
+        {
+          "name": "meta__feed_name",
+          "handler": { "format": "Reference", "table": "patients", "column": "meta__feed_name" }
+        },
+        {
+          "name": "patient_id",
+          "handler": { "format": "Reference", "table": "patients", "column": "patient_id" }
+        },
+        {
+          "name": "inpatient_outpatient_flag",
+          "handler": { "format": "Constant", "value": "I" }
+        },
+        {
+          "name": "admission_datetime",
+          "handler": { "format": "DateTime", "minvalue": "2016-01-01", "maxvalue": "2016-10-01" }
+        },
+        {
+          "name": "discharge_datetime",
+          "handler": { "format": "DateTime", "minvalue": "2016-01-01", "maxvalue": "2016-10-01" }
+        },
+        {
+          "name": "discharge_disposition",
+          "handler": { "format": "Constant", "value": "02" }
+        },
+        {
+          "name": "dateof_birth",
+          "handler": { "format": "DateTime", "minvalue": "2016-01-01", "maxvalue": "2016-10-01" }
+        },
+        {
+          "name": "gender",
+          "handler": { "format": "Constant", "value": "M" }
+        }
+      ]
+    },
+    {
+      "name": "procedures",
+      "rowCount": 10,
+      "columns": [
+        {
+          "name": "encounter_id",
+          "handler": { "format": "Reference", "table": "encounters", "column": "encounter_id" }
+        },
+        {
+          "name": "meta__feed_name",
+          "handler": { "format": "Reference", "table": "patients", "column": "meta__feed_name" }
+        },
+        {
+          "name": "code_system",
+          "handler": { "format": "Constant", "value": "ICD-10-PCS" }
+        },
+        {
+          "name": "code",
+          "handler": { "format": "List", "listitems": "0W993ZZ;05HM33Z;B543ZZA;0BH18EZ;0BH18EZ;5A1955Z", "seperator": ";" }
+        },
+        {
+          "name": "sequence",
+          "handler": { "format": "Integer", "minvalue": "1", "maxvalue": "10" }
+        },
+        {
+          "name": "datetime",
+          "handler": { "format": "DateTime", "minvalue": "2016-01-01", "maxvalue": "2016-10-01" }
+        }
+      ]
+    },
+    {
+      "name": "diagnoses",
+      "rowCount": 10,
+      "columns": [
+        {
+          "name": "encounter_id",
+          "handler": { "format": "Reference", "table": "encounters", "column": "encounter_id" }
+        },
+        {
+          "name": "meta__feed_name",
+          "handler": { "format": "Reference", "table": "patients", "column": "meta__feed_name" }
+        },
+        {
+          "name": "code_system",
+          "handler": { "format": "Constant", "value": "ICD-10-CM" }
+        },
+        {
+          "name": "code",
+          "handler": { "format": "List", "listitems": "L89.131;Z51.5;G93.40;Z91.81;J44.0;Z79.899;Z99.11", "seperator": ";" }
+        },
+        {
+          "name": "sequence",
+          "handler": { "format": "Integer", "minvalue": "1", "maxvalue": "10" }
+        },
+        {
+          "name": "present_on_admission",
+          "handler": { "format": "List", "listitems": "0;1", "seperator": ";" }
+        }
+      ]
+    },
+    {
+      "name": "payer",
+      "rowCount": 5,
+      "columns": [
+        {
+          "name": "meta__feed_name",
+          "handler": { "format": "Reference", "table": "patients", "column": "meta__feed_name" }
+        },
+        {
+          "name": "payer_id",
+          "handler": { "format": "Integer", "min": "1", "max": "20" }
+        },
+        {
+          "name": "payer_class_category",
+          "handler": { "format": "Regex", "expression": "^\\d{5}$" }
+        }
+      ]
+    },
+    {
+      "name": "payerBridge",
+      "rowCount": 5,
+      "columns": [
+        {
+          "name": "encounter_id",
+          "handler": { "format": "Reference", "table": "encounters", "column": "encounter_id" }
+        },
+        {
+          "name": "meta__feed_name",
+          "handler": { "format": "Reference", "table": "patients", "column": "meta__feed_name" }
+        },
+        {
+          "name": "payer_id",
+          "handler": { "format": "Reference", "table": "payer", "column": "payer_id" }
+        },
+        {
+          "name": "sequence",
+          "handler": { "format": "Integer", "minvalue": "1", "maxvalue": "10" }
+        }
+      ]
+    }
+  ]
+}
