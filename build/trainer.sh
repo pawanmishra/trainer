@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ARCHIVE_NAME=feku
+ARCHIVE_NAME=trainer
 ARCHIVE_VERSION=0.1-SNAPSHOT
 
 if [ -f "${ARCHIVE_NAME}-${ARCHIVE_VERSION}.jar" ]

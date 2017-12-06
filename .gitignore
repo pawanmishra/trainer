@@ -29,12 +29,12 @@ misc/*.gz
 
 .gitignore
 
+project/target/
 target/
 lib_managed/
 project/boot/
 project/plugins/project/
 .cache
-.lib/
 ### Scala template
 *.log
 ### Java template
@@ -67,4 +67,4 @@ src/main/scala-2.12/
 src/test/java/
 src/test/scala-2.12/
 .idea/
-src/main/resources/*.json
+src/main/resources/

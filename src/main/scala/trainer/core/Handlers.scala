@@ -218,5 +218,3 @@ object Timer {
     result
   }
 }
-
-class Test(val num: String) extends AnyVal

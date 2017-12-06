@@ -1,5 +1,5 @@
 
-name := "feku"
+name := "trainer"
 
 version := "0.1-SNAPSHOT"
 
@@ -27,8 +27,8 @@ lazy val commonSettings = Seq(
 )
 
 lazy val root = (project in file(".")).
-  settings(commonSettings: _*).
   settings(
+    commonSettings,
     assemblyJarName in assembly := "trainer-0.1-SNAPSHOT.jar",
     mainClass in assembly := Some("trainer.Main"),
     target in assembly := file("./build/")
